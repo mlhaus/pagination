@@ -99,7 +99,10 @@ public class PaginationServlet extends HttpServlet {
         int peoplePerPage = 12;
         int begin = 0;
         int end = 0;
-        int maxPages = people.size() / peoplePerPage + 1;
+        int maxPages = people.size() / peoplePerPage;
+        if(people.size() % peoplePerPage != 0) {
+            maxPages++;
+        }
         String pageStr = request.getParameter("page");
         if(pageStr != null && !pageStr.equals("")) {
             try {
@@ -115,11 +118,12 @@ public class PaginationServlet extends HttpServlet {
         }
         begin = (page - 1) * peoplePerPage;
         end = begin + peoplePerPage - 1;
-        request.setAttribute("people", people);
         request.setAttribute("begin", begin);
         request.setAttribute("end", end);
         request.setAttribute("maxPages", maxPages);
         request.setAttribute("currentPage", page);
+        
+        request.setAttribute("people", people);
         request.getRequestDispatcher("/WEB-INF/jsp/view/directory.jsp").forward(request, response);
     }
 
