@@ -16,6 +16,7 @@ body {
     margin: 0 0 10px;
 }
 .pagination a {
+    width: 3em;
     color: white;
     text-decoration: none;
     padding: 10px 15px;
