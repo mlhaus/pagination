@@ -95,12 +95,13 @@ public class PaginationServlet extends HttpServlet {
         } catch (ParserConfigurationException | IOException | SAXException ex) {
             return;
         } 
-        int pagesPerPage = 5;
-        int beginPage = 0;
-        int endPage = 0;
-        
+//        Code by Calvin Ryan
+//        int pagesPerPage = 5;
+//        int beginPage = 0;
+//        int endPage = 0;
+
         int page = 1;
-        int peoplePerPage = 2;
+        int peoplePerPage = 8;
         int begin = 0;
         int end = 0;
         int maxPages = people.size() / peoplePerPage;
@@ -120,11 +121,11 @@ public class PaginationServlet extends HttpServlet {
                 page = 1;
             }
         }
-        
-        beginPage = page / pagesPerPage * pagesPerPage > 0 ? page / pagesPerPage * pagesPerPage : 1;
-        endPage = beginPage + pagesPerPage - 1 > maxPages ? (maxPages / pagesPerPage + 1) * pagesPerPage - 1 : beginPage + pagesPerPage - 1;
-        request.setAttribute("beginPage", beginPage);
-        request.setAttribute("endPage", endPage);
+//        Code by Calvin Ryan
+//        beginPage = page / pagesPerPage * pagesPerPage > 0 ? page / pagesPerPage * pagesPerPage : 1;
+//        endPage = beginPage + pagesPerPage - 1 > maxPages ? (maxPages / pagesPerPage + 1) * pagesPerPage - 1 : beginPage + pagesPerPage - 1;
+//        request.setAttribute("beginPage", beginPage);
+//        request.setAttribute("endPage", endPage);
 
         begin = (page - 1) * peoplePerPage;
         end = begin + peoplePerPage - 1;

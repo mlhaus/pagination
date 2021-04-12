@@ -10,7 +10,12 @@
         <div class="container">
             <h2>Directory</h2>
             <div class="pagination">
-                <%--<c:forEach var="i" begin="1" end="${maxPages}">--%>
+                <c:forEach var="i" begin="1" end="${maxPages}">
+                    <a <c:if test="${currentPage == i}">class="active"</c:if> href="<c:url value="/directory"><c:param name="page" value="${i}" /></c:url>">${i}</a>
+                </c:forEach>
+            </div>
+            <%--Code by Calvin Ryan--%>
+            <%--<div class="pagination">
                 <a href="<c:url value="/directory"><c:param name="page" value ="1" /></c:url>">|&lt;</a>
                 <a href="<c:url value="/directory"><c:param name="page" value ="${currentPage - 1 < 1 ? 1 : currentPage - 1}" /></c:url>">&lt</a>
                 <c:forEach var="i" begin="${beginPage}" end="${endPage}">
@@ -27,7 +32,7 @@
                 </c:forEach>
                 <a href="<c:url value="/directory"><c:param name="page" value ="${currentPage + 1 > maxPages ? maxPages : currentPage + 1}" /></c:url>">&gt</a>
                 <a href="<c:url value="/directory"><c:param name="page" value ="${maxPages}" /></c:url>">&gt;|</a>
-            </div>
+            </div>--%>
             <div class="people">
                 <c:forEach items="${people}" var="person" begin="${begin}" end="${end}">
                     <div class="person">
